@@ -1,0 +1,20 @@
+# requirements.txt
+# Install all: pip install -r requirements.txt
+
+# ── Core (s01–s12) ─────────────────────────────────────────────────────────
+anthropic>=0.40.0          # Anthropic SDK — client, streaming, tool use
+python-dotenv>=1.0.0       # .env loading
+
+# ── s13+ additions ────────────────────────────────────────────────────────
+colorama>=0.4.6            # Windows ANSI colour fix (all sessions)
+PyYAML>=6.0.1              # YAML config for permissions + MCP (s15, s16, s21)
+
+# ── s21: MCP runtime ──────────────────────────────────────────────────────
+mcp>=1.0.0                 # Official MCP Python SDK
+
+# ── s22: Production mailbox ───────────────────────────────────────────────
+redis>=5.0.0               # Redis pub/sub (falls back to Queue if unavailable)
+                           # Run Redis: docker run -p 6379:6379 redis
+
+# ── LiteLLM proxy (optional — for non-Anthropic models via Nebius etc.) ───
+# litellm[proxy]>=1.50.0   # Uncomment to enable
