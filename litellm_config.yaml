@@ -1,0 +1,9 @@
+# LiteLLM Configuration
+# Using Nebius AI as the LLM provider
+model_list:
+  - model_name: my-nebius-model
+    litellm_params:
+      # Nebius AI model: DeepSeek V3.2
+      model: nebius/deepseek-ai/DeepSeek-V3.2
+      # API key from environment variable
+      api_key: os.environ/NEBIUS_API_KEY
