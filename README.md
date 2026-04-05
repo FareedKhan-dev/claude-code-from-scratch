@@ -1,6 +1,5 @@
-# Building Claude Code Using Harness Engineering
-
 <div align="center">
+<h1>Building Claude Code Using Harness Engineering</h1>
 
 **A complete reverse-engineering of Claude Code's architecture — built from a minimal agent loop to a 23-session production system.**
 
@@ -9,7 +8,10 @@
 [![Anthropic](https://img.shields.io/badge/Anthropic-Claude-orange?style=for-the-badge)](https://anthropic.com)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
+This repository is built on top of [learn-claude-code](https://github.com/shareAI-lab/learn-claude-code)
+
 </div>
+
 
 ---
 
