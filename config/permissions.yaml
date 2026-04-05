@@ -1,0 +1,52 @@
+# config/permissions.yaml
+# Rule-based trust system used by s15 and s16.
+# Patterns are Python regex strings matched against the command/path string.
+# Evaluation order: always_deny → always_allow → ask_user → default allow.
+
+always_deny:
+  - pattern: "rm -rf /"
+    reason: "Recursive root delete blocked"
+  - pattern: "sudo"
+    reason: "Privilege escalation blocked"
+  - pattern: "shutdown|reboot|halt"
+    reason: "System power commands blocked"
+  - pattern: "> /dev/"
+    reason: "Writing to device files blocked"
+  - pattern: ":\\(\\)\\{ :|:& \\};:"
+    reason: "Fork bomb blocked"
+  - pattern: "curl.*\\| *sh|wget.*\\| *sh"
+    reason: "Pipe-to-shell downloads blocked"
+
+always_allow:
+  - pattern: "^ls( |$|$)"
+    reason: "Directory listing is always safe"
+  - pattern: "^cat "
+    reason: "Reading files is always safe"
+  - pattern: "^echo "
+    reason: "Echo is always safe"
+  - pattern: "^pwd$"
+    reason: "Print working dir is always safe"
+  - pattern: "^git (status|log|diff|show|branch|tag)"
+    reason: "Read-only git commands are always safe"
+  - pattern: "^grep "
+    reason: "Grep is always safe"
+  - pattern: "^find "
+    reason: "Find is always safe"
+  - pattern: "^head |^tail |^wc "
+    reason: "Text inspection is always safe"
+
+ask_user:
+  - pattern: "^rm "
+    reason: "File deletion requires confirmation"
+  - pattern: "^pip install|^npm install|^yarn add"
+    reason: "Package installation requires confirmation"
+  - pattern: "^git (commit|push|merge|rebase|reset)"
+    reason: "Git write operations require confirmation"
+  - pattern: "^mv "
+    reason: "Moving files requires confirmation"
+  - pattern: "^chmod|^chown"
+    reason: "Permission changes require confirmation"
+  - pattern: "^kill |^pkill "
+    reason: "Killing processes requires confirmation"
+  - pattern: "\\.env"
+    reason: "Accessing .env files requires confirmation"
