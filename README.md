@@ -95,8 +95,8 @@ claude_code_push_this/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourname/claude-code-harness
-cd claude-code-harness
+git clone https://github.com/FareedKhan-dev/claude-code-from-scratch.git
+cd claude-code-from-scratch
 
 # 2. Create virtual environment
 python -m venv .venv
