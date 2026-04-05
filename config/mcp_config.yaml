@@ -1,0 +1,22 @@
+# config/mcp_config.yaml
+# MCP server configurations for s21_mcp_runtime.py
+# Uncomment and configure entries to connect real servers.
+
+servers:
+  # Local filesystem server (requires Node.js)
+  # - name: filesystem
+  #   transport: stdio
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-filesystem", "."]
+
+  # Git server
+  # - name: git
+  #   transport: stdio
+  #   command: uvx
+  #   args: ["mcp-server-git"]
+
+  # Custom Python MCP server
+  # - name: custom
+  #   transport: stdio
+  #   command: python
+  #   args: ["tools/my_mcp_server.py"]
